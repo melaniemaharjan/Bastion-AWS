@@ -14,12 +14,12 @@ A/ Create a key pair
 B/ Launch a VPC
 - Go on "VPC Dashboard"
 - Click "Start VPC Wizard"
-	Step 1: Select "VPC with Public and Private Subnets"
-	Step 2: Add a VPC name
-		Select the same "Availability Zone" for public and private subnet
-		Use a NAT instance
-		Select the "Instance type": "t2.nano"
-		Select the key pair that you created
+Step 1: Select "VPC with Public and Private Subnets"
+Step 2: Add a VPC name
+Select the same "Availability Zone" for public and private subnet
+Use a NAT instance
+Select the "Instance type": "t2.nano"
+Select the key pair that you created
 - Click "Create VPC"
 
 => You should see this message "Your VPC has been successfully created"
@@ -28,19 +28,19 @@ B/ Launch a VPC
 C/ Launch bastion
 - Go on "EC2 Dashboard"
 - Click "Launch Instance"
-	Step 1: Select "Microsoft Windows Server 2016 Base"
-	Step 2: Select "t2.micro"
-	Step 3: On "Network", choose the VPC previously created
-		On "Subnet", choose the "Public Subnet"
-		On "Auto-assign Public IP", choose "Enable"
-	Skip Step 4 and 5
-	Step 6: Choose "Create a new security group"
-		Add a "Security group name" and a "Description"
-		Click on "Add rule"
-			RULE 1:	Type: HTTP; Source 0.0.0.0/0
-			RULE 2: Type: HTTPS; Source 0.0.0.0/0
-			RULE 3: Type: RDP; Source: My IP
-	Step 7: Review your instance
+Step 1: Select "Microsoft Windows Server 2016 Base"
+Step 2: Select "t2.micro"
+Step 3: On "Network", choose the VPC previously created
+On "Subnet", choose the "Public Subnet"
+On "Auto-assign Public IP", choose "Enable"
+Skip Step 4 and 5
+Step 6: Choose "Create a new security group"
+Add a "Security group name" and a "Description"
+Click on "Add rule"
+RULE 1:	Type: HTTP; Source 0.0.0.0/0
+RULE 2: Type: HTTPS; Source 0.0.0.0/0
+RULE 3: Type: RDP; Source: My IP
+Step 7: Review your instance
 - Click on "Launch"
 - Choose an existing key pair and select the key pair previously created. Tick the box and launch the instance
 		
@@ -50,19 +50,17 @@ C/ Launch bastion
 D/ Launch private instance
 - Go on "EC2 Dashboard"
 - Click "Launch Instance"
-	Step 1: Select "Microsoft Windows Server 2016 Base"
-	Step 2: Select "t2.micro"
-	Step 3: On "Network", choose the VPC previously created
-		On "Subnet", choose the "Private Subnet"
-		On "Auto-assign Public IP", choose "Use subnet setting (Disable)"
-	Skip Step 4 and 5
-	Step 6: Choose "Create a new security group"
-		Add a "Security group name" and a "Description"
-		Click on "Add rule"
-			RULE 1:	Type: RDP
-				Source: Custom
-				And type your first security group created (of your bastion)
-	Step 7: Review your instance
+Step 1: Select "Microsoft Windows Server 2016 Base"
+Step 2: Select "t2.micro"
+Step 3: On "Network", choose the VPC previously created
+On "Subnet", choose the "Private Subnet"
+On "Auto-assign Public IP", choose "Use subnet setting (Disable)"
+Skip Step 4 and 5
+Step 6: Choose "Create a new security group"
+Add a "Security group name" and a "Description"
+Click on "Add rule"
+RULE 1:	Type: RDP; Source: Custom; And type your first security group created (of your bastion)
+Step 7: Review your instance
 - Click on "Launch"
 - Choose an existing key pair and select the key pair previously created. Tick the box and launch the instance
 
@@ -75,8 +73,8 @@ E/ Connect to the bastion
 - On "Choose a file", select your key file and "Decrypt password"
 - Keep the password 
 - Open "Remote Desktop Connection"
-	Computer: copy paste Public IP of the bastion
-	Enter the password and connect
+Computer: copy paste Public IP of the bastion
+Enter the password and connect
 
 => You are now connected to the bastion
 
